@@ -29,25 +29,24 @@ app.get('/movie', function handleGetMovie(req, res) {
 
   
   let results = MOVIES;
-
-
-  results = MOVIES.filter(movie => {
+ if (genre) {
+  results = results.filter(movie => {
     return movie.genre.toLowerCase().includes(genre.toLowerCase());
   });
-
-
-  results = MOVIES.filter(movie => {
+}
+console.log(results)
+if (country) {
+  results = results.filter(movie => {
     return movie.country.toLowerCase().includes(country.toLowerCase());
   });
-  
-
-  if(avg_vote) {
-    results = MOVIES.filter(movie => {
+}
+  console.log(results)
+if(avg_vote) {
+    results = results.filter(movie => {
       return movie.avg_vote >= avg_vote;
-
     });
   }
-
+console.log(results)
   res.json(results);
 });
 
