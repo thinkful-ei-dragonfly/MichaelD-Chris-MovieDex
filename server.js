@@ -43,7 +43,7 @@ if (country) {
   console.log(results)
 if(avg_vote) {
     results = results.filter(movie => {
-      return movie.avg_vote >= avg_vote;
+      return parseInt(movie.avg_vote) >= avg_vote;
     });
   }
 console.log(results)
